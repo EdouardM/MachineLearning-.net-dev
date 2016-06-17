@@ -10,8 +10,8 @@ open MachineLearning.NaiveBayes.Classifier
 let trainingfilename = "SMSSpamCollection"
 let trainingfilepath =  __SOURCE_DIRECTORY__ + @"..\..\data\" + trainingfilename
 
-type DocType = 
-    | Spam 
+type DocType =
+    | Spam
     | Ham
 
 let parseDocType = function
@@ -25,7 +25,7 @@ let parseLine (line: string) =
     let content = split.[1]
     (label, content)
 
-let dataset = 
+let dataset =
     File.ReadAllLines trainingfilepath
     |> Array.map parseLine
 
@@ -48,7 +48,7 @@ let hamWithFree =
     |> Array.length
 // => 1
 
-let primitiveClassifier (sms: string) = 
+let primitiveClassifier (sms: string) =
     if sms.Contains("FREE") then Spam else Ham
 
 ///Implementing First tokenizer
@@ -63,4 +63,3 @@ let tokens (txt: string) =
 
 //Test
 tokens "42 is the Answer to the question"
-
