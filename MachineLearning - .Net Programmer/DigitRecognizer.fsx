@@ -11,8 +11,8 @@ let test = trainingdata.[100].Label
 
 
 ///Takes array of pixels and returns predicted label
-let manathanClassifier = train manathanDistance trainingdata 
-let euclideanClassifier = train euclideanDistance trainingdata 
+let manathanClassifier = train manathanDistance trainingdata
+let euclideanClassifier = train euclideanDistance trainingdata
 
 
 let validationfilename = "validationsample.csv"
@@ -20,9 +20,8 @@ let validationfilepath = __SOURCE_DIRECTORY__ + @"..\..\data\" + validationfilen
 
 let validationData = reader validationfilepath
 
-printfn "Manathan:" 
+printfn "Manathan:"
 evaluate manathanClassifier validationData
 
-printfn "Euclidean:" 
+printfn "Euclidean:"
 evaluate euclideanClassifier validationData
-
